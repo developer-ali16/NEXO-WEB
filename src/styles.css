@@ -1,0 +1,183 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * NEXO design system — monochrome premium dark.
+ * Palette: #111111, #1C1C1C, #2F343C, #4E4C4B (+ tonal light neutrals for text).
+ * All colors are oklch semantic tokens. Never hardcode colors in components.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-heading);
+  --shadow-card: var(--shadow-elevated);
+  --shadow-lift: var(--shadow-hover);
+}
+
+:root {
+  --radius: 0.875rem;
+
+  --font-body: "Inter Tight", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Instrument Sans", "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+
+  /* #111111 */
+  --background: oklch(0.176 0 0);
+  --foreground: oklch(0.955 0 0);
+
+  /* #1C1C1C */
+  --surface: oklch(0.226 0 0);
+  /* #2F343C */
+  --surface-elevated: oklch(0.312 0.012 258);
+
+  --card: oklch(0.226 0 0);
+  --card-foreground: oklch(0.955 0 0);
+  --popover: oklch(0.226 0 0);
+  --popover-foreground: oklch(0.955 0 0);
+
+  --primary: oklch(0.955 0 0);
+  --primary-foreground: oklch(0.176 0 0);
+
+  /* #4E4C4B */
+  --secondary: oklch(0.432 0.004 60);
+  --secondary-foreground: oklch(0.955 0 0);
+
+  --muted: oklch(0.262 0.004 258);
+  --muted-foreground: oklch(0.7 0.005 60);
+
+  --accent: oklch(0.312 0.012 258);
+  --accent-foreground: oklch(0.965 0 0);
+
+  --destructive: oklch(0.55 0.13 25);
+  --destructive-foreground: oklch(0.965 0 0);
+
+  --border: oklch(1 0 0 / 10%);
+  --border-strong: oklch(1 0 0 / 18%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.8 0 0 / 60%);
+
+  --sidebar: oklch(0.226 0 0);
+  --sidebar-foreground: oklch(0.955 0 0);
+  --sidebar-primary: oklch(0.955 0 0);
+  --sidebar-primary-foreground: oklch(0.176 0 0);
+  --sidebar-accent: oklch(0.312 0.012 258);
+  --sidebar-accent-foreground: oklch(0.955 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.8 0 0 / 60%);
+
+  --shadow-elevated: 0 1px 2px oklch(0 0 0 / 40%), 0 16px 40px -24px oklch(0 0 0 / 80%);
+  --shadow-hover: 0 2px 4px oklch(0 0 0 / 45%), 0 28px 60px -28px oklch(0 0 0 / 90%);
+
+  --gradient-overlay: linear-gradient(
+    to bottom,
+    oklch(0.176 0 0 / 45%) 0%,
+    oklch(0.176 0 0 / 72%) 55%,
+    oklch(0.176 0 0) 100%
+  );
+  --gradient-card: linear-gradient(
+    to top,
+    oklch(0.176 0 0 / 92%) 0%,
+    oklch(0.176 0 0 / 30%) 60%,
+    transparent 100%
+  );
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: oklch(1 0 0 / 18%);
+  }
+}
+
+@utility overlay-hero {
+  background-image: var(--gradient-overlay);
+}
+
+@utility overlay-card {
+  background-image: var(--gradient-card);
+}
+
+@utility container-nexo {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 80rem;
+  padding-inline: 1.25rem;
+}
+
+@utility eyebrow {
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
